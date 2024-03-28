@@ -49,7 +49,7 @@ resource "aws_ecs_task_definition" "ecs_task_def" {
 
 
 resource "aws_iam_role" "ecs_task_exec_role" {
- name               = "ecs_task_exec_role"
+ name               = "${var.name_app}_ecs_task_role"
  assume_role_policy = data.aws_iam_policy_document.assume_role_policy.json
 }
 
