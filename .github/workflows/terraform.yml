@@ -1,11 +1,7 @@
 
-name: 'Terraform'
+name: 'Default-Terraform'
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-
 jobs:
   terraform:
     name: 'Terraform'
