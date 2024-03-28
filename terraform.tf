@@ -9,9 +9,9 @@ terraform {
 
   required_version = "~> 1.2"
 
-#  backend "s3" {
-#    bucket = "terraforms-bucket"
-#    key    = "states-${var.name_app}-ecs"
-#    region = "us-east-2"
-#  }
+  backend "s3" {
+    bucket = "terraforms-bucket"
+
+    region = "us-east-2"
+  }
 }
