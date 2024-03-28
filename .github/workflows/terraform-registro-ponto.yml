@@ -43,12 +43,7 @@ jobs:
               -var "name_app=registro-ponto-test"
 
       - name: Terraform Validate
-        run: |
-          terraform  validate \
-              -backend-config="key=states-registro-ponto-test-ecs" \
-              -backend-config="bucket=terraforms-bucket" \
-              -backend-config="region=${{ secrets.AWS_REGION }}" \
-              -var "name_app=registro-ponto-test"
+        run: terraform  validate
 
       # Generates an execution plan for Terraform
       - name: Terraform Plan
