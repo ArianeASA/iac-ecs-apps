@@ -39,12 +39,12 @@ jobs:
           terraform  init \
               -backend-config="key=states-registro-ponto-test-ecs" \
               -backend-config="bucket=terraforms-bucket" \
-              -backend-config="region=us-east-2" \
+              -backend-config="region=${{ secrets.AWS_REGION }}" \
               -var "name_app=registro-ponto-test"
 
       - name: Terraform Validate
         run: |
-          terraform validate \ 
+          terraform  validate \
               -backend-config="key=states-registro-ponto-test-ecs" \
               -backend-config="bucket=terraforms-bucket" \
               -backend-config="region=${{ secrets.AWS_REGION }}" \
@@ -54,14 +54,14 @@ jobs:
       - name: Terraform Plan
 #        if: ${{ github.event_name == 'pull_request' || github.ref == 'refs/heads/main' }}
         run: |
-          terraform plan \ 
+          terraform  plan \
               -backend-config="key=states-registro-ponto-test-ecs" \
               -backend-config="bucket=terraforms-bucket" \
-              -backend-config="region=us-east-2" \
+              -backend-config="region=${{ secrets.AWS_REGION }}" \
               -var 'aws_region=${{ secrets.AWS_REGION }}' \
               -var 'account_id=${{ secrets.ACCOUNT_ID }}' \
-              -var 'access_key=${{ secrets.AWS_ACCESS_KEY_ID }}' \ 
-              -var 'secret_key=${{ secrets.AWS_SECRET_ACCESS_KEY }}' \ 
+              -var 'access_key=${{ secrets.AWS_ACCESS_KEY_ID }}' \
+              -var 'secret_key=${{ secrets.AWS_SECRET_ACCESS_KEY }}' \
               -var "name_app=registro-ponto-test"
 
         # On push to "master", build or change infrastructure according to Terraform configuration files
@@ -69,27 +69,27 @@ jobs:
       - name: Terraform Apply
 #        if: github.ref == 'refs/heads/main'
         run: |
-          terraform apply \ 
-              -auto-approve \ 
+          terraform  apply \
+              -auto-approve \
               -backend-config="key=states-registro-ponto-test-ecs" \
               -backend-config="bucket=terraforms-bucket" \
-              -backend-config="region=us-east-2" \
-              -var 'aws_region=${{ secrets.AWS_REGION }}' \ 
-              -var 'access_key=${{ secrets.AWS_ACCESS_KEY_ID }}' \ 
+              -backend-config="region=${{ secrets.AWS_REGION }}" \
+              -var 'aws_region=${{ secrets.AWS_REGION }}' \
+              -var 'access_key=${{ secrets.AWS_ACCESS_KEY_ID }}' \
               -var 'secret_key=${{ secrets.AWS_SECRET_ACCESS_KEY }}' \
               -var 'account_id=${{ secrets.ACCOUNT_ID }}' \
               -var "name_app=registro-ponto-test"
 
-      - name: Cleanup if apply fails
-        if: ${{ failure() }}
-        run: |
-          terraform destroy \
-              -auto-approve \ 
-              -backend-config="key=states-registro-ponto-test-ecs" \
-              -backend-config="bucket=terraforms-bucket" \
-              -backend-config="region=us-east-2" \
-              -var 'aws_region=${{ secrets.AWS_REGION }}' \ 
-              -var 'access_key=${{ secrets.AWS_ACCESS_KEY_ID }}' \ 
-              -var 'secret_key=${{ secrets.AWS_SECRET_ACCESS_KEY }}' \
-              -var 'account_id=${{ secrets.ACCOUNT_ID }}' \
-              -var "name_app=registro-ponto-test"
+#      - name: Cleanup if apply fails
+#        if: ${{ failure() }}
+#        run: |
+#          terraform  destroy \
+#              -auto-approve \
+#              -backend-config="key=states-registro-ponto-test-ecs" \
+#              -backend-config="bucket=terraforms-bucket" \
+#              -backend-config="region=us-east-2" \
+#              -var 'aws_region=${{ secrets.AWS_REGION }}' \
+#              -var 'access_key=${{ secrets.AWS_ACCESS_KEY_ID }}' \
+#              -var 'secret_key=${{ secrets.AWS_SECRET_ACCESS_KEY }}' \
+#              -var 'account_id=${{ secrets.ACCOUNT_ID }}' \
+#              -var "name_app=registro-ponto-test"
