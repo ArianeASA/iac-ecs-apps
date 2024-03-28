@@ -1,6 +1,6 @@
 # Load balancer security group. CIDR and port ingress can be changed as required.
 resource "aws_security_group" "lb_security_group" {
-  name        = "Terraform-ECS-${var.name_app}-ALB-SG"
+  name        = "tf-ecs-${var.name_app}-ALB-SG"
   description = "SG-ALB-${var.name_app}"
   vpc_id = aws_vpc.app-vpc.id
 
@@ -30,8 +30,8 @@ resource "aws_security_group_rule" "sg_egress_rule_lb_to_ecs_cluster" {
 
 # ECS cluster security group.
 resource "aws_security_group" "ecs_security_group" {
-  name        = "Terraform-ECS-${var.name_app} TASK SG"
-  description = "Terraform-ECS-${var.name_app} SG"
+  name        = "tf-ecs-${var.name_app} TASK SG"
+  description = "tf-ecs-${var.name_app} SG"
   vpc_id      = aws_vpc.app-vpc.id
 
   ingress {
