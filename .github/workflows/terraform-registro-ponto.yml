@@ -35,10 +35,10 @@ jobs:
 
       # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
       - name: Terraform Init
-        run: terraform init
+        run: terraform init -var 'name_app=registro-ponto'
 
       - name: Terraform Validate
-        run: terraform validate
+        run: terraform validate -var 'name_app=registro-ponto'
 
       # Generates an execution plan for Terraform
       - name: Terraform Plan
