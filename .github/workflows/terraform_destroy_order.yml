@@ -1,14 +1,16 @@
 name: Terraform Destroy Order APP
 on:
   workflow_dispatch:
-
+env:
+  APP_NAME: payments-app
 jobs:
   terraform-destroy-order-app:
     uses: ./.github/workflows/terraform_destroy.yml
+    secrets:
+        AWS_REGION: ${{ secrets.AWS_REGION }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        ACCOUNT_ID: ${{ secrets.ACCOUNT_ID }}
     with:
       app_name: 'order-app'
-      AWS_REGION: '${{ secrets.AWS_REGION }}'
-      AWS_ACCESS_KEY_ID: '${{ secrets.AWS_ACCESS_KEY_ID }}'
-      AWS_SECRET_ACCESS_KEY: '${{ secrets.AWS_SECRET_ACCESS_KEY }}'
-      ACCOUNT_ID: '${{ secrets.ACCOUNT_ID }}'
 
