@@ -34,6 +34,14 @@ variable "cpu" {
   default = "256"
 }
 
+variable "cognito_id" {
+  type = string
+}
+
+variable "cognito_name" {
+  type = string
+}
+
 variable "name_app" {
   type = string
   validation {

@@ -41,7 +41,9 @@ jobs:
               -backend-config="key=states-${{inputs.app_name}}-ecs" \
               -backend-config="bucket=terraforms-bucket" \
               -backend-config="region=${{ secrets.AWS_REGION }}" \
-              -var "name_app=${{inputs.app_name}}"
+              -var "name_app=${{ inputs.app_name }}" \
+              -var "cognito_name=${{ secrets.CG_NAME }}" \
+              -var "cognito_id=${{ secrets.CG_ID }}"
 
       - name: Terraform Validate
         run: terraform  validate
@@ -55,7 +57,9 @@ jobs:
               -var 'account_id=${{ secrets.ACCOUNT_ID }}' \
               -var 'access_key=${{ secrets.AWS_ACCESS_KEY_ID }}' \
               -var 'secret_key=${{ secrets.AWS_SECRET_ACCESS_KEY }}' \
-              -var "name_app=${{inputs.app_name}}"
+              -var "name_app=${{ inputs.app_name }}" \
+              -var "cognito_name=${{ secrets.CG_NAME }}" \
+              -var "cognito_id=${{ secrets.CG_ID }}"
 
         # On push to "master", build or change infrastructure according to Terraform configuration files
         # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
@@ -68,7 +72,9 @@ jobs:
               -var 'access_key=${{ secrets.AWS_ACCESS_KEY_ID }}' \
               -var 'secret_key=${{ secrets.AWS_SECRET_ACCESS_KEY }}' \
               -var 'account_id=${{ secrets.ACCOUNT_ID }}' \
-              -var "name_app=${{inputs.app_name}}"
+              -var "name_app=${{ inputs.app_name }}" \
+              -var "cognito_name=${{ secrets.CG_NAME }}" \
+              -var "cognito_id=${{ secrets.CG_ID }}"
 
       - name: Cleanup if apply fails
         if: ${{ failure() }}
@@ -79,4 +85,6 @@ jobs:
               -var 'access_key=${{ secrets.AWS_ACCESS_KEY_ID }}' \
               -var 'secret_key=${{ secrets.AWS_SECRET_ACCESS_KEY }}' \
               -var 'account_id=${{ secrets.ACCOUNT_ID }}' \
-              -var "name_app=${{inputs.app_name}}"
+              -var "name_app=${{ inputs.app_name }}" \
+              -var "cognito_name=${{ secrets.CG_NAME }}" \
+              -var "cognito_id=${{ secrets.CG_ID }}"
