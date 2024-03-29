@@ -1,9 +1,9 @@
-name: 'Default-Terraform'
+name: Default Terraform
 on:
 
 jobs:
   terraform:
-    name: 'Terraform'
+    name: Terraform Default
     runs-on: ubuntu-latest
     environment: production
 

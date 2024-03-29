@@ -1,5 +1,5 @@
 
-name: 'Terraform-Registro-Ponto'
+name: Terraform-Registro-Ponto
 
 on:
   push:
@@ -7,8 +7,8 @@ on:
   pull_request:
 
 jobs:
-  terraform:
-    name: 'Terraform'
+  terraform-registro-ponto:
+    name: Terraform'
     runs-on: ubuntu-latest
     environment: production
 

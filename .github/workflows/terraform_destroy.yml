@@ -4,7 +4,9 @@ on:
 
 jobs:
 
-  terraform_destroy:
+  terraform-destroy:
+    name: Terraform Destroy
+    environment: production
     runs-on: ubuntu-latest
     steps:
     - name: Configure AWS Credentials
