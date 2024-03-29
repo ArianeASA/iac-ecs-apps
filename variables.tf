@@ -34,6 +34,14 @@ variable "cpu" {
   default = "256"
 }
 
+variable "cognito_id" {
+  type = string
+}
+
+variable "cognito_name" {
+  type = string
+}
+
 variable "name_app" {
   type = string
   validation {
@@ -45,7 +53,7 @@ variable "name_app" {
 locals {
   cluster_name = "${var.name_app}-cluster"
   cluster_service = "${var.name_app}-service"
-  cluster_task = "${var.name_app}-service"
+  cluster_task = "${var.name_app}-task"
   image_url = "${var.account_id}.dkr.ecr.${var.aws_region}/${var.name_app}:latest"
 }
 
