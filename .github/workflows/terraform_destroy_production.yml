@@ -1,0 +1,9 @@
+name: Terraform Destroy Production APP
+on:
+  workflow_dispatch:
+
+env:
+  APP_NAME: prod-app
+jobs:
+  terraform-destroy-order-app:
+    uses: ./.github/workflows/terraform_destroy.yml
