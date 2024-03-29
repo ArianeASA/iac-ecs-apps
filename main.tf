@@ -117,7 +117,7 @@ resource "aws_route" "internet_access" {
 # Create a NAT gateway with an EIP for each private subnet to get internet connectivity
 resource "aws_eip" "gw" {
   count      = 2
-  domain        = "vpc"
+  domain      = "vpc"
   depends_on = [aws_internet_gateway.app-internet-gateway]
 }
 

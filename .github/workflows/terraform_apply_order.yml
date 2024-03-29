@@ -1,0 +1,10 @@
+name: Terraform APPLY Order APP
+on:
+  workflow_dispatch:
+
+jobs:
+  terraform-apply-order-app:
+    uses: ./.github/workflows/terraform-apply.yml
+    with:
+      app_name: 'order-app'
+    secrets: inherit

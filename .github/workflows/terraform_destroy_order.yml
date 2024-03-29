@@ -1,0 +1,11 @@
+name: Terraform Destroy Order APP
+on:
+  workflow_dispatch:
+
+jobs:
+  terraform-destroy-order-app:
+    uses: ./.github/workflows/terraform_destroy.yml
+    with:
+      app_name: 'order-app'
+    secrets: inherit
+

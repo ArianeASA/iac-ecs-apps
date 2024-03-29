@@ -1,0 +1,10 @@
+name: Terraform Destroy Production APP
+on:
+  workflow_dispatch:
+
+jobs:
+  terraform-destroy-production-app:
+    uses: ./.github/workflows/terraform_destroy.yml
+    with:
+      app_name: 'prod-app'
+    secrets: inherit
