@@ -6,7 +6,15 @@ on:
       app_name:
         type: string
         required: true
-
+      secrets:
+        AWS_REGION:
+          required: true
+        AWS_ACCESS_KEY_ID:
+          required: true
+        AWS_SECRET_ACCESS_KEY:
+          required: true
+        ACCOUNT_ID:
+          required: true
 
 jobs:
 
