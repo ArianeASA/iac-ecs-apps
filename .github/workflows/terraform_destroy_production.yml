@@ -6,4 +6,4 @@ env:
   APP_NAME: prod-app
 jobs:
   terraform-destroy-order-app:
-    uses: ./.github/workflows/terraform_destroy.yml
+    uses: ArianeASA/iac-ecs-apps/.github/workflows/terraform_destroy.yml
