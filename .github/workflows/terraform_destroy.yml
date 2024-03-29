@@ -6,18 +6,6 @@ on:
       app_name:
         type: string
         required: true
-#      AWS_REGION:
-#        required: true
-#        type: string
-#      AWS_ACCESS_KEY_ID:
-#        required: true
-#        type: string
-#      AWS_SECRET_ACCESS_KEY:
-#        required: true
-#        type: string
-#      ACCOUNT_ID:
-#        required: true
-#        type: string
 
 jobs:
 

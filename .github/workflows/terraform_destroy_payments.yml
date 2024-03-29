@@ -2,8 +2,9 @@ name: Terraform Destroy Payments APP
 on:
   workflow_dispatch:
 
-env:
-  APP_NAME: payments-app
 jobs:
   terraform-destroy-payments-app:
     uses: ./.github/workflows/terraform_destroy.yml
+    with:
+      app_name: 'pay-app'
+    secrets: inherit
