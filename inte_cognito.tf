@@ -6,6 +6,6 @@ resource "aws_apigatewayv2_authorizer" "auth" {
 
   jwt_configuration {
     audience = [var.cognito_id]
-    issuer   = "https://${var.cognito_name}.auth.${var.aws_region}.amazoncognito.com"
+    issuer   = "https://${var.cognito_name}/.well-known/openid-configuration"
   }
 }
