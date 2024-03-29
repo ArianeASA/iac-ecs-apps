@@ -1,7 +1,5 @@
-
 name: 'Default-Terraform'
 on:
-  workflow_dispatch:
 
 jobs:
   terraform:
