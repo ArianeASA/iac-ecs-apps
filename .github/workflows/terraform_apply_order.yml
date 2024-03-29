@@ -4,7 +4,7 @@ on:
 
 jobs:
   terraform-apply-order-app:
-    uses: ./.github/templates/terraform-apply.yml
+    uses: ./.github/workflows/terraform-apply.yml
     with:
       app_name: 'order-app'
     secrets: inherit
