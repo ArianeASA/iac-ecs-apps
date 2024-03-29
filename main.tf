@@ -118,6 +118,8 @@ resource "aws_route" "internet_access" {
 resource "aws_eip" "gw" {
   count      = 2
   domain        = "vpc"
+  instance = ""
+  vpc = true
   depends_on = [aws_internet_gateway.app-internet-gateway]
 }
 

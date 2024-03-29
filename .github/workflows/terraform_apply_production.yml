@@ -4,7 +4,7 @@ on:
 
 jobs:
   terraform-apply-payments-app:
-    uses: ./.github/workflows/templates/terraform-apply.yml
+    uses: ./.github/templates/terraform-apply.yml
     with:
       app_name: 'prod-app'
     secrets: inherit

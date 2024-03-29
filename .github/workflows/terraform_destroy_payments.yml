@@ -4,7 +4,7 @@ on:
 
 jobs:
   terraform-destroy-payments-app:
-    uses: ./.github/workflows/templates/terraform_destroy.yml
+    uses: ./.github/templates/terraform_destroy.yml
     with:
       app_name: 'pay-app'
     secrets: inherit
