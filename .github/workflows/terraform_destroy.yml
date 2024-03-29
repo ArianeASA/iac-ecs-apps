@@ -1,7 +1,12 @@
 name: Terraform Destroy
 
 on:
-  workflow_dispatch:
+  workflow_call:
+    inputs:
+      app_name:
+        type: string
+        required: true
+
 
 jobs:
 
@@ -29,7 +34,7 @@ jobs:
             -backend-config="key=states-registro-ponto-test-ecs" \
             -backend-config="bucket=terraforms-bucket" \
             -backend-config="region=${{ secrets.AWS_REGION }}" \
-            -var "name_app=$APP_NAME"
+            -var "name_app= ${{ inputs.app_name }}"
 
     - name: Terraform Destroy
       run: |
@@ -39,4 +44,4 @@ jobs:
             -var 'access_key=${{ secrets.AWS_ACCESS_KEY_ID }}' \
             -var 'secret_key=${{ secrets.AWS_SECRET_ACCESS_KEY }}' \
             -var 'account_id=${{ secrets.ACCOUNT_ID }}' \
-            -var "name_app=$APP_NAME"
+            -var "name_app= ${{ inputs.app_name }}"
