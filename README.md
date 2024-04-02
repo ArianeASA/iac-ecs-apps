@@ -5,11 +5,9 @@
 # iac-ecs-app
 Repository to deploy ECS applications using Terraform
 
-## Archicture
+## Architecture
 
 ![Arquitetura](https://github.com/ArianeASA/iac-ecs-apps/assets/84243254/07d85ed0-c641-4933-8ca8-cd52746ca2ce)
-
-
 
 ## Padrão Saga Coreografado
 
